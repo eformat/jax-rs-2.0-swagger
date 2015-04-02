@@ -12,6 +12,8 @@ RUN curl -SL "http://eformat.co.nz/swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8080
 
-CMD ["java", "-DSWAG_HOST=swagger.cloudapps.example.com", "-jar", "/usr/local/jaxrs-2.0-swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar"]
+# "-DSWAG_HOST=swagger.cloudapps.example.com"
+
+CMD ["java", "-jar", "/usr/local/jaxrs-2.0-swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar"]
 
 #end
