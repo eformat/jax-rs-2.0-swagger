@@ -12,3 +12,6 @@ Using Swagger for REST API documentation
 
 ### run
   java -DPORT=8090 -jar target/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar
+
+### run docker
+  docker run -p 8080:8080 jax-rs-2.0-swagger
