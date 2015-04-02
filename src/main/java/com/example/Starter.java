@@ -13,15 +13,20 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 
 import com.example.config.AppConfig;
 
-public class Starter {
-	private static final int SERVER_PORT = 8080;
+public class Starter {	
 	private static final String CONTEXT_PATH = "rest";
 	
 	public static void main( final String[] args ) throws Exception {
 		Resource.setDefaultUseCaches( false );
 		
-		final Server server = new Server( SERVER_PORT );		
-		System.setProperty( AppConfig.SERVER_PORT, Integer.toString( SERVER_PORT ) );
+		String webPort = System.getProperty("PORT");
+        if(webPort == null || webPort.isEmpty()) {
+            webPort = "8080";
+        }
+        System.out.println("Web PORT is:"+webPort);
+
+		final Server server = new Server( new Integer(webPort).intValue() );		
+		System.setProperty( AppConfig.SERVER_PORT, webPort );
 		System.setProperty( AppConfig.SERVER_HOST, "localhost" );
 		System.setProperty( AppConfig.CONTEXT_PATH, CONTEXT_PATH );				
 
