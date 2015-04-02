@@ -27,7 +27,14 @@ public class Starter {
 
 		final Server server = new Server( new Integer(webPort).intValue() );		
 		System.setProperty( AppConfig.SERVER_PORT, webPort );
-		System.setProperty( AppConfig.SERVER_HOST, "localhost" );
+		
+		String serverHost = System.getProperty("SWAG_HOST");
+        if(serverHost == null || serverHost.isEmpty()) {
+            serverHost = "localhost";
+        }
+        System.out.println("Server HOST is:"+serverHost);
+		
+		System.setProperty( AppConfig.SERVER_HOST, serverHost );
 		System.setProperty( AppConfig.CONTEXT_PATH, CONTEXT_PATH );				
 
 		// Configuring Apache CXF servlet and Spring listener  
