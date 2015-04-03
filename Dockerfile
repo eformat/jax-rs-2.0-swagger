@@ -14,6 +14,6 @@ EXPOSE 8080
 
 # "-DSWAG_HOST=swagger.cloudapps.example.com"
 
-CMD ["java", "-jar", "/usr/local/jaxrs-2.0-swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/usr/local/jaxrs-2.0-swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar", "-Djetty.output.buffer.size=65536"]
 
 #end
