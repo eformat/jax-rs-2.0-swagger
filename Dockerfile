@@ -16,7 +16,7 @@ RUN chmod +x /usr/local/jaxrs-2.0-swagger/startup.sh
 
 EXPOSE 8080
 
-ENV JAVA_OPTS -DSWAG_HOST=api-example.cloudapps.ose.eformat.co.nz
+#ENV JAVA_OPTS -DSWAG_HOST=api-example.cloudapps.ose.eformat.co.nz
 ENV JAVA_JAR /usr/local/jaxrs-2.0-swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar
 
 ENTRYPOINT ["/usr/local/jaxrs-2.0-swagger/startup.sh"]
