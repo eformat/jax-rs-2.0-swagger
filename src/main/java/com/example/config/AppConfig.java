@@ -50,13 +50,20 @@ public class AppConfig {
 		config.setVersion( "1.0.0" );
 		config.setScan( true );
 		config.setResourcePackage( Person.class.getPackage().getName() );
+		System.out.println("BasePath: " + String.format( "http://%s:%s/%s%s",
+				environment.getProperty( SERVER_HOST ),
+				environment.getProperty( SERVER_PORT ),
+				environment.getProperty( CONTEXT_PATH ),
+				jaxRsServer().getEndpoint().getEndpointInfo().getAddress() 
+			));
 		config.setBasePath( 
 			String.format( "http://%s:%s/%s%s",
 				environment.getProperty( SERVER_HOST ),
 				environment.getProperty( SERVER_PORT ),
 				environment.getProperty( CONTEXT_PATH ),
 				jaxRsServer().getEndpoint().getEndpointInfo().getAddress() 
-			) 
+			)
+						
 		);
 		
 		return config;
