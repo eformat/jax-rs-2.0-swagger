@@ -50,12 +50,12 @@ public class Starter {
  		final ServletHolder swaggerHolder = new ServletHolder( new DefaultServlet() );
  		final ServletContextHandler swagger = new ServletContextHandler();
  		swagger.setContextPath( "/swagger" );
- 		swagger.addServlet( swaggerHolder, "/*" );
+ 		swagger.addServlet( swaggerHolder, "/*" ); 	 		
         swagger.setResourceBase( new ClassPathResource( "/webapp" ).getURI().toString() );
 
  		final HandlerList handlers = new HandlerList();
- 		handlers.addHandler( context );
  		handlers.addHandler( swagger );
+ 		handlers.addHandler( context );
  		
         server.setHandler( handlers );
         server.start();

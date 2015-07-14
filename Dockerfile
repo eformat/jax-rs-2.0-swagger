@@ -1,7 +1,7 @@
 #
 # docker build -t jax-rs-2.0-swagger .
 #
-FROM java:7-jre
+FROM java:8-jre
 
 ENV WORK_HOME /usr/local/jaxrs-2.0-swagger
 RUN mkdir -p "$WORK_HOME"
