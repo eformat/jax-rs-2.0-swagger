@@ -12,7 +12,8 @@ RUN curl -S -L "http://eformat.co.nz/swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.j
 
 EXPOSE 8080
 
-ENTRYPOINT [ "java -DSWAG_HOST=api-example.cloudapps.ose.eformat.co.nz", "-jar", "/usr/local/jaxrs-2.0-swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar" ]
-CMD [ "" ]
+ENV JAVA_OPTS -DSWAG_HOST=api-example.cloudapps.ose.eformat.co.nz
+
+CMD ["java", "-jar", "/usr/local/jaxrs-2.0-swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar"]
 
 #end
