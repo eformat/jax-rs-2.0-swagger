@@ -25,6 +25,13 @@ public class Starter {
         }
         System.out.println("Web PORT is:"+webPort);
 
+        String proxyWebPort = System.getProperty("PROXY_PORT");
+        if(proxyWebPort == null || proxyWebPort.isEmpty()) {
+            proxyWebPort = "8080";
+        }
+        System.out.println("Proxy Web PORT is:" + proxyWebPort);               		
+		System.setProperty( AppConfig.SERVER_PROXY_PORT, proxyWebPort );
+        
 		final Server server = new Server( new Integer(webPort).intValue() );		
 		System.setProperty( AppConfig.SERVER_PORT, webPort );
 		

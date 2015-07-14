@@ -27,7 +27,8 @@ import com.wordnik.swagger.jaxrs.listing.ResourceListingProvider;
 public class AppConfig {
 	public static final String SERVER_PORT = "server.port";
 	public static final String SERVER_HOST = "server.host";
-	public static final String CONTEXT_PATH = "context.path";		
+	public static final String CONTEXT_PATH = "context.path";
+	public static final String SERVER_PROXY_PORT = "server.proxy.port";
 	
 	@Bean( destroyMethod = "shutdown" )
 	public SpringBus cxf() {
@@ -50,22 +51,29 @@ public class AppConfig {
 		config.setVersion( "1.0.0" );
 		config.setScan( true );
 		config.setResourcePackage( Person.class.getPackage().getName() );
+		
+		String port = environment.getProperty( SERVER_PORT );
+		String proxyPort = environment.getProperty( SERVER_PROXY_PORT );
+		if (port.compareTo(proxyPort) != 0) {
+			port = proxyPort;
+		}
+		
 		System.out.println("BasePath: " + String.format( "http://%s:%s/%s%s",
 				environment.getProperty( SERVER_HOST ),
-				environment.getProperty( SERVER_PORT ),
+				port,
 				environment.getProperty( CONTEXT_PATH ),
 				jaxRsServer().getEndpoint().getEndpointInfo().getAddress() 
 			));
 		config.setBasePath( 
 			String.format( "http://%s:%s/%s%s",
 				environment.getProperty( SERVER_HOST ),
-				environment.getProperty( SERVER_PORT ),
+				port,
 				environment.getProperty( CONTEXT_PATH ),
 				jaxRsServer().getEndpoint().getEndpointInfo().getAddress() 
 			)
 						
 		);
-		
+				
 		return config;
 	}
 
