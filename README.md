@@ -4,6 +4,9 @@ Using Swagger for REST API documentation
 ### test here
   http://localhost:8080/swagger/
 
+### API here
+  http://localhost:8080/rest/
+
 ### build with maven
   mvn clean package
 
