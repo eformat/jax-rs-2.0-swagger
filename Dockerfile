@@ -14,6 +14,6 @@ EXPOSE 8080
 
 ENV JAVA_OPTS -DSWAG_HOST=api-example.cloudapps.ose.eformat.co.nz
 
-CMD ["java", "-jar", "/usr/local/jaxrs-2.0-swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "${JAVA_OPTS}", "-jar", "/usr/local/jaxrs-2.0-swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar"]
 
 #end
