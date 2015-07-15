@@ -7,7 +7,7 @@ ENV WORK_HOME /usr/local/jaxrs-2.0-swagger
 RUN mkdir -p "$WORK_HOME"
 WORKDIR $WORK_HOME
 
-ENV get-new-jar 10
+ENV get-new-jar 11
 
 RUN curl -S -L "http://eformat.co.nz/swagger/jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar" -o jax-rs-2.0-swagger-0.0.1-SNAPSHOT.jar
 RUN curl -S -L "http://eformat.co.nz/swagger/startup.sh" -o startup.sh
